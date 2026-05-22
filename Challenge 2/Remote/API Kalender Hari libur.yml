@@ -1,0 +1,15 @@
+info:
+  name: API Kalender Hari libur
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: https://libur.deno.dev/api
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,15 @@
+info:
+  name: Jira Connect
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseURL}}/auth/jira/connect"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

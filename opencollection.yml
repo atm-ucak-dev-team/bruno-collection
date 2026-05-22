@@ -1,0 +1,38 @@
+opencollection: 1.0.0
+
+info:
+  name: Apple Developer Academy - Challenge 2
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  variables:
+    - name: baseURL
+      value: http://localhost:3001
+    - name: baseURL
+      value: https://challenge2.test-bomsiwor.my.id
+      disabled: true
+
+docs:
+  content: |-
+    # Summary
+
+    Remote folder adalah directory endpoint external atau 3rd party.
+
+    Directory lain merupakan provided endpoint from backend.
+  type: text/markdown
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

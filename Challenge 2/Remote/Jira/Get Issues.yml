@@ -1,0 +1,24 @@
+info:
+  name: Get Issues
+  type: http
+  seq: 3
+
+http:
+  method: get
+  url: https://api.atlassian.com/ex/jira/d1d570aa-574b-4fe4-bf04-eb2e9adc5dd2/rest/api/2/issue/picker?query=
+  headers:
+    - name: Authorization
+      value: Bearer {{jiraBearerToken}}
+    - name: Accept
+      value: application/json
+  params:
+    - name: query
+      value: ""
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

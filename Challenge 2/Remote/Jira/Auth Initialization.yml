@@ -1,0 +1,37 @@
+info:
+  name: Auth Initialization
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=MZSJs4HfQhvMl8FWYS9KIHAosXtzOzTw&scope=read%3Ajira-user%20read%3Ajira-work&redirect_uri=https%3A%2F%2Fchallenge2.test-bomsiwor.my.id%2Fautofollowerup%2Fcallback&state=019e253f-38b9-75d0-8891-19d2458d3e01&response_type=019e2541-0776-7d41-b613-d6e283969e51&prompt=consent
+  params:
+    - name: audience
+      value: api.atlassian.com
+      type: query
+    - name: client_id
+      value: MZSJs4HfQhvMl8FWYS9KIHAosXtzOzTw
+      type: query
+    - name: scope
+      value: read%3Ajira-user%20read%3Ajira-work
+      type: query
+    - name: redirect_uri
+      value: https%3A%2F%2Fchallenge2.test-bomsiwor.my.id%2Fautofollowerup%2Fcallback
+      type: query
+    - name: state
+      value: 019e253f-38b9-75d0-8891-19d2458d3e01
+      type: query
+    - name: response_type
+      value: 019e2541-0776-7d41-b613-d6e283969e51
+      type: query
+    - name: prompt
+      value: consent
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
