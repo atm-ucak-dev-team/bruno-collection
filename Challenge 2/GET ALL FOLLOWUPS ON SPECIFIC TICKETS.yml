@@ -1,0 +1,125 @@
+info:
+  name: GET ALL FOLLOWUPS ON SPECIFIC TICKETS
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: "{{urlLocal}}/api/v1/{{jiraTicketID}}/followups"
+  headers:
+    - name: X-User-Dummy-Id
+      value: test-user-123
+      disabled: true
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Nzk4MTA5NjksImlhdCI6MTc3OTcyNDU2OSwidXNlcl9pZCI6InRlc3QtdXNlci0xMjMifQ.pCDfQW4_tdqz0IqTDA0O73_FT_e-iHn7g9vg64RThcw
+
+runtime:
+  variables:
+    - name: jiraTicketID
+      value: PROJ-123
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: example
+    request:
+      url: "{{urlLocal}}/api/v1/{{jiraTicketID}}/followups"
+      method: GET
+      headers:
+        - name: X-User-Dummy-Id
+          value: test-user-123
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json
+        - name: vary
+          value: Origin
+        - name: date
+          value: Mon, 25 May 2026 16:01:36 GMT
+        - name: content-length
+          value: "1664"
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000001",
+              "jiraTicketId": "PROJ-123",
+              "subject": "Follow up on PROJ-123 task",
+              "lastFollowUp": null,
+              "nextFollowUp": "2026-06-01T09:00:00Z",
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000002",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Need update on API spec",
+              "lastFollowUp": "2026-05-22T09:51:59Z",
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "expired"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000003",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Code review reminder",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": "2026-05-25T08:52:01Z",
+              "status": "replied"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000005",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Design assets needed",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": "2026-05-22T09:52:01Z",
+              "status": "replied"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000006",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: QA sign-off",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-00000000000c",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Old followup (stopped)",
+              "lastFollowUp": null,
+              "nextFollowUp": "2026-06-01T09:00:00Z",
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-00000000000d",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: One-time reminder",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-00000000000e",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Old expired",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "expired"
+            }
+          ]

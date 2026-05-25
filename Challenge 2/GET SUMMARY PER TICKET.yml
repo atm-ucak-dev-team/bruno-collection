@@ -1,0 +1,50 @@
+info:
+  name: GET SUMMARY PER TICKET
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{urlLocal}}/api/v1/{{jiraTicketID}}/summary"
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Nzk4MTA5NjksImlhdCI6MTc3OTcyNDU2OSwidXNlcl9pZCI6InRlc3QtdXNlci0xMjMifQ.pCDfQW4_tdqz0IqTDA0O73_FT_e-iHn7g9vg64RThcw
+
+runtime:
+  variables:
+    - name: jiraTicketID
+      value: PROJ-123
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: example
+    request:
+      url: "{{urlLocal}}/api/v1/{{jiraTicketID}}/summary"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json
+        - name: vary
+          value: Origin
+        - name: date
+          value: Mon, 25 May 2026 16:02:19 GMT
+        - name: content-length
+          value: "79"
+      body:
+        type: json
+        data: |-
+          {
+            "jiraTicketId": "PROJ-123",
+            "jiraTitle": "",
+            "replied": 2,
+            "ongoing": 4,
+            "expired": 2
+          }

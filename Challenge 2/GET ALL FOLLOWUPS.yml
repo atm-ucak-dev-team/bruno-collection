@@ -1,0 +1,166 @@
+info:
+  name: GET ALL FOLLOWUPS
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{urlLocal}}/api/v1/followup"
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Nzk4MTA5NjksImlhdCI6MTc3OTcyNDU2OSwidXNlcl9pZCI6InRlc3QtdXNlci0xMjMifQ.pCDfQW4_tdqz0IqTDA0O73_FT_e-iHn7g9vg64RThcw
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: example
+    request:
+      url: "{{urlLocal}}/api/v1/followup"
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json
+        - name: vary
+          value: Origin
+        - name: date
+          value: Mon, 25 May 2026 16:07:02 GMT
+        - name: transfer-encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000001",
+              "jiraTicketId": "PROJ-123",
+              "subject": "Follow up on PROJ-123 task",
+              "lastFollowUp": null,
+              "nextFollowUp": "2026-06-01T09:00:00Z",
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000002",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Need update on API spec",
+              "lastFollowUp": "2026-05-22T09:51:59Z",
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "expired"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000003",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Code review reminder",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": "2026-05-25T08:52:01Z",
+              "status": "replied"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000004",
+              "jiraTicketId": "PROJ-456",
+              "subject": "PROJ-456: Status update",
+              "lastFollowUp": null,
+              "nextFollowUp": "2026-06-01T09:00:00Z",
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000005",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Design assets needed",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": "2026-05-22T09:52:01Z",
+              "status": "replied"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000006",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: QA sign-off",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000007",
+              "jiraTicketId": "PROJ-456",
+              "subject": "PROJ-456: No frequency",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000008",
+              "jiraTicketId": "PROJ-456",
+              "subject": "PROJ-456: Expired no run",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "expired"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-000000000009",
+              "jiraTicketId": "PROJ-789",
+              "subject": "PROJ-789: Welcome",
+              "lastFollowUp": null,
+              "nextFollowUp": "2026-06-01T09:00:00Z",
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-00000000000a",
+              "jiraTicketId": "PROJ-789",
+              "subject": "PROJ-789: Sprint review",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": "2026-05-25T03:52:01Z",
+              "status": "replied"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-00000000000b",
+              "jiraTicketId": "PROJ-789",
+              "subject": "PROJ-789: Old task followup",
+              "lastFollowUp": "2026-05-20T09:52:01Z",
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "expired"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-00000000000c",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Old followup (stopped)",
+              "lastFollowUp": null,
+              "nextFollowUp": "2026-06-01T09:00:00Z",
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-00000000000d",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: One-time reminder",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "ongoing"
+            },
+            {
+              "followupId": "a0000000-0000-0000-0000-00000000000e",
+              "jiraTicketId": "PROJ-123",
+              "subject": "PROJ-123: Old expired",
+              "lastFollowUp": null,
+              "nextFollowUp": null,
+              "repliedAt": null,
+              "status": "expired"
+            }
+          ]

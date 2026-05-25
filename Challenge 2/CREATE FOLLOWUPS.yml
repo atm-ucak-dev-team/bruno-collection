@@ -1,0 +1,126 @@
+info:
+  name: CREATE FOLLOWUPS
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{urlLocal}}/api/v1/followups"
+  body:
+    type: json
+    data: |-
+      {
+        "jiraTicketId": "10001",
+        "to": "stakeholder@example.com",
+        "cc": "managerexample.com",
+        "subject": "Follow-up on ticket PROJ-123",
+        "emailBody": "Hi team, just checking in on the status.",
+        "startDateTime": "2025-06-01T00:00:00Z",
+        "expireDateTime": "2025-07-01T00:00:00Z",
+        "frequency": "0 9 * * 1",
+        "repeat": 4,
+        "followupConfirmation": false
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Nzk4MTA5NjksImlhdCI6MTc3OTcyNDU2OSwidXNlcl9pZCI6InRlc3QtdXNlci0xMjMifQ.pCDfQW4_tdqz0IqTDA0O73_FT_e-iHn7g9vg64RThcw
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: example
+    request:
+      url: "{{urlLocal}}/api/v1/followups"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "jiraTicketId": "10001",
+            "to": "stakeholder@example.com",
+            "cc": "manager@example.com",
+            "subject": "Follow-up on ticket PROJ-123",
+            "emailBody": "Hi team, just checking in on the status.",
+            "startDateTime": "2025-06-01T00:00:00Z",
+            "expireDateTime": "2025-07-01T00:00:00Z",
+            "frequency": "0 9 * * 1",
+            "repeat": 4,
+            "followupConfirmation": false
+          }
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: content-type
+          value: application/json
+        - name: vary
+          value: Origin
+        - name: date
+          value: Mon, 25 May 2026 16:22:25 GMT
+        - name: content-length
+          value: "507"
+      body:
+        type: json
+        data: |-
+          {
+            "id": "557faf9b-9609-43e2-83f6-4ed16983d63f",
+            "jira_ticket_id": "10001",
+            "jira_ticket_key": "",
+            "user_id": "test-user-123",
+            "to": "stakeholder@example.com",
+            "cc": "manager@example.com",
+            "subject": "Follow-up on ticket PROJ-123",
+            "email_body": "Hi team, just checking in on the status.",
+            "start_date_time": "2025-06-01T00:00:00Z",
+            "expire_date_time": "2025-07-01T00:00:00Z",
+            "frequency": "0 9 * * 1",
+            "repeat": 4,
+            "followup_confirmation": false,
+            "status": "ongoing",
+            "last_run_at": null,
+            "created_at": "2026-05-25T23:22:24.862684+07:00"
+          }
+  - name: error, musti email
+    request:
+      url: "{{urlLocal}}/api/v1/followups"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "jiraTicketId": "10001",
+            "to": "stakeholder@example.com",
+            "cc": "managerexample.com",
+            "subject": "Follow-up on ticket PROJ-123",
+            "emailBody": "Hi team, just checking in on the status.",
+            "startDateTime": "2025-06-01T00:00:00Z",
+            "expireDateTime": "2025-07-01T00:00:00Z",
+            "frequency": "0 9 * * 1",
+            "repeat": 4,
+            "followupConfirmation": false
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: content-type
+          value: application/json
+        - name: vary
+          value: Origin
+        - name: date
+          value: Mon, 25 May 2026 16:31:11 GMT
+        - name: content-length
+          value: "77"
+      body:
+        type: json
+        data: |-
+          {
+            "error": {
+              "code": "INVALID_CC",
+              "message": "cc must be a valid email address"
+            }
+          }
