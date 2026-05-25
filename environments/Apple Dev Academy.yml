@@ -6,3 +6,5 @@ variables:
     value: ""
   - name: jiraSecretID
     value: ""
+  - name: urlLocal
+    value: http://localhost:3001

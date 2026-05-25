@@ -29,6 +29,7 @@ docs:
     Remote folder adalah directory endpoint external atau 3rd party.
 
     Directory lain merupakan provided endpoint from backend.
+    test
   type: text/markdown
 bundled: false
 extensions:

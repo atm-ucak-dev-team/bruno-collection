@@ -1,0 +1,54 @@
+info:
+  name: GET SUMMARY PER TICKET
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{urlLocal}}/api/v1/{{jiraTicketID}}/summary"
+  headers:
+    - name: X-User-Dummy-Id
+      value: test-user-123
+  auth: inherit
+
+runtime:
+  variables:
+    - name: jiraTicketID
+      value: PROJ-123
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: example
+    request:
+      url: "{{urlLocal}}/api/v1/{{jiraTicketID}}/summary"
+      method: GET
+      headers:
+        - name: X-User-Dummy-Id
+          value: test-user-123
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json
+        - name: vary
+          value: Origin
+        - name: date
+          value: Mon, 25 May 2026 10:00:06 GMT
+        - name: content-length
+          value: "79"
+      body:
+        type: json
+        data: |-
+          {
+            "jiraTicketId": "PROJ-123",
+            "jiraTitle": "",
+            "replied": 2,
+            "ongoing": 4,
+            "expired": 2
+          }
