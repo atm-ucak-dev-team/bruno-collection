@@ -1,11 +1,11 @@
 info:
-  name: GET ALL FOLLOWUPS
+  name: GET SINGLE FOLLOWUPS
   type: http
-  seq: 4
+  seq: 8
 
 http:
   method: GET
-  url: "{{urlLocal}}/api/v1/followup"
+  url: "{{urlLocal}}/api/v1/followups/a0000000-0000-0000-0000-00000000000f"
   headers:
     - name: X-User-Dummy-Id
       value: test-user-123
@@ -167,3 +167,51 @@ examples:
               "status": "expired"
             }
           ]
+  - name: Success
+    request:
+      url: "{{urlLocal}}/api/v1/followups/a0000000-0000-0000-0000-00000000000f"
+      method: GET
+      headers:
+        - name: X-User-Dummy-Id
+          value: test-user-123
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-type
+          value: application/json
+        - name: vary
+          value: Origin
+        - name: date
+          value: Wed, 27 May 2026 18:53:02 GMT
+        - name: transfer-encoding
+          value: chunked
+      body:
+        type: json
+        data: |-
+          {
+            "subject": "PROJ-100: Cross-team sync",
+            "status": "replied",
+            "lastFollowUp": "2026-05-27T23:57:04Z",
+            "stakeholderName": "Radit",
+            "sendEmailEvery": null,
+            "threads": [
+              {
+                "id": "15f6cb6d-0d5e-4dc0-bea4-6255c371edee",
+                "gmailThreadId": "<CAJK_YevSOn0m+KMOTQAekc4_Zx_E=j+Dmtsie8REkZ=_EKH0uQ@mail.gmail.com>",
+                "status": "replied",
+                "body": "--000000000000b897c70652cf8492\r\nContent-Type: text/plain; charset=\"UTF-8\"\r\n\r\nHi [Recipient Name],\r\n\r\nThank you for the follow-up regarding the quarterly planning sync for\r\nPROJ-100.\r\n\r\nPlease let me know your availability for this meeting, or if there are\r\nspecific materials I should review in advance.\r\n\r\nBest regards,\r\n\r\nBomanarakasura\r\n\r\n\r\nOn Wed, 27 May 2026, 23:57 , <dfbomanarakasura26@cjkt.idserve.net> wrote:\r\n\r\n> Quarterly planning sync for PROJ-100.\r\n>\r\n\r\n--000000000000b897c70652cf8492\r\nContent-Type: text/html; charset=\"UTF-8\"\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\n<div dir=3D\"auto\">Hi [Recipient Name],<br><br>Thank you for the follow-up r=\r\negarding the quarterly planning sync for PROJ-100.<br><br>Please let me kno=\r\nw your availability for this meeting, or if there are specific materials I =\r\nshould review in advance.<br><br>Best regards,<br><br>Bomanarakasura<div><b=\r\nr></div></div><br><div class=3D\"gmail_quote gmail_quote_container\"><div dir=\r\n=3D\"ltr\" class=3D\"gmail_attr\">On Wed, 27 May 2026, 23:57 , &lt;<a href=3D\"m=\r\nailto:dfbomanarakasura26@cjkt.idserve.net\">dfbomanarakasura26@cjkt.idserve.=\r\nnet</a>&gt; wrote:<br></div><blockquote class=3D\"gmail_quote\" style=3D\"marg=\r\nin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex\">Quarterly planni=\r\nng sync for PROJ-100.<br>\r\n</blockquote></div>\r\n\r\n--000000000000b897c70652cf8492--\r\n",
+                "lastSyncedAt": "2026-05-27T23:58:34Z"
+              },
+              {
+                "id": "8f77b82d-b51c-44a0-af13-9f34381c9030",
+                "gmailThreadId": "<1779901020454957000.822efc44bb2069d5b4979d8d8f19c16c@cjkt.idserve.net>",
+                "status": "closed",
+                "body": "Quarterly planning sync for PROJ-100.",
+                "lastSyncedAt": "2026-05-27T23:57:04Z"
+              }
+            ],
+            "suggestion": "You're connected and completed this follow up!",
+            "jiraTicketTitle": "Jira ticket lengkap",
+            "jiraTicketStatus": "ongoing"
+          }
