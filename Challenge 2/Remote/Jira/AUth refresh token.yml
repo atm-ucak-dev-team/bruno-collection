@@ -1,0 +1,27 @@
+info:
+  name: AUth refresh token
+  type: http
+  seq: 6
+
+http:
+  method: post
+  url: https://auth.atlassian.com/oauth/token
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "grant_type": "refresh_token",
+        "client_id": "{{jiraClientID}}",
+        "client_secret": "{{jiraSecretID}}",
+        "refresh_token": "eyJraWQiOiJhdXRoLmF0bGFzc2lhbi5jb20tUkVGUkVTSC0zMWQwOTJjZC0yY2U1LTRmNDAtOTJhNC0wNjdjZDVlZWMwYTAiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJjOTQxZmE3ZC01NTQ2LTQ2NTctYjAzYy01MDFlNDUyMjdlNzQiLCJzdWIiOiI1Zjc2ZTMxNTU4ODk5ZTAwNzA2Zjc0MGQiLCJuYmYiOjE3Nzk2MDg5NDgsImlzcyI6Imh0dHBzOi8vYXV0aC5hdGxhc3NpYW4uY29tIiwiaWF0IjoxNzc5NjA4OTQ4LCJleHAiOjE3ODczODQ5NDgsImF1ZCI6Ik1aU0pzNEhmUWh2TWw4RldZUzlLSUhBb3NYdHpPelR3IiwiaHR0cHM6Ly9pZC5hdGxhc3NpYW4uY29tL2F0bF90b2tlbl90eXBlIjoiUk9UQVRJTkdfUkVGUkVTSCIsInZlcmlmaWVkIjoidHJ1ZSIsImh0dHBzOi8vaWQuYXRsYXNzaWFuLmNvbS9zZXNzaW9uX2lkIjoiMzJhMjM2ZDQtMDM2OS00ZWJlLWEyMTItNzg5MzU3NmY4NTM4IiwiaHR0cHM6Ly9pZC5hdGxhc3NpYW4uY29tL3Byb2Nlc3NSZWdpb24iOiJ1cy13ZXN0LTIiLCJodHRwczovL2lkLmF0bGFzc2lhbi5jb20vcGFyZW50X2FjY2Vzc190b2tlbl9pZCI6IjE3NGU1YTMwLTM4N2ItNGFlNy05MTU2LTQ5MDU2NDg0NjA5NiIsImh0dHBzOi8vaWQuYXRsYXNzaWFuLmNvbS9yZWZyZXNoX2NoYWluX2lkIjoiTVpTSnM0SGZRaHZNbDhGV1lTOUtJSEFvc1h0ek96VHctNWY3NmUzMTU1ODg5OWUwMDcwNmY3NDBkLTRhOWNkYjMzLTk1ZDgtNDlmNi1iNThlLTczMjY2MjI2YWFiZSIsImh0dHBzOi8vaWQuYXRsYXNzaWFuLmNvbS92ZXJpZmllZCI6dHJ1ZSwiaHR0cHM6Ly9hdGxhc3NpYW4uY29tL29hdXRoQ2xpZW50SWQiOiJNWlNKczRIZlFodk1sOEZXWVM5S0lIQW9zWHR6T3pUdyIsImh0dHBzOi8vaWQuYXRsYXNzaWFuLmNvbS91anQiOiI4ZGEwZGNlMC0xOTZhLTQ1ZmUtODkzNi01YjFmNDg5NDkzODQiLCJzY29wZSI6InJlYWQ6amlyYS13b3JrIG9mZmxpbmVfYWNjZXNzIHJlYWQ6amlyYS11c2VyIn0.T7o2C2h6p8wJp0DGHXXvEqt0blGdmI1_Mr2Rzhq8p5VMothP2OjrQ0BG5ojXfOQEqkXlk0pgLesJUh9nNb8lyOb_nnRx8opn8UD_JrIrZIWj6XY0DK3D6hgog3YJOeZYBVnTapcxHqYwbvde30bbXo1v3QkPiK_xxg3jgdwACwEByvfBjwlgxvDsfpFYjdftndnwr1w1v4dfVaLoT8Foza2KEk9qvUAjn-oMCl3VHs8bKVJbsvhUJ0rno8yuI8id3sUeZLQuTM22J4FCVEgrw-4QbxC-PzsLAifERad8-suWbLXvqlA0VM2nfp5XBBQpdBjnxNBplE6DYWJqq4BrxQ"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

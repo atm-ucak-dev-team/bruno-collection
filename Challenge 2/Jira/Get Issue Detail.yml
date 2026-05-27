@@ -1,0 +1,77 @@
+info:
+  name: Get Issue Detail
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{baseURL}}/api/v1/jira/issues/10000"
+  headers:
+    - name: X-Jira-Access-Token
+      value: "{{jiraBearerToken}}"
+    - name: X-User-Cloud-ID
+      value: "{{cloudId}}"
+    - name: X-User-Dummy-Id
+      value: "123"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: Success
+    request:
+      url: "{{baseURL}}/api/v1/jira/issues/10000"
+      method: GET
+      headers:
+        - name: X-Jira-Access-Token
+          value: "{{jiraBearerToken}}"
+        - name: X-User-Cloud-ID
+          value: "{{cloudId}}"
+        - name: X-User-Dummy-Id
+          value: "123"
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: date
+          value: Wed, 27 May 2026 18:14:39 GMT
+        - name: content-type
+          value: application/json
+        - name: content-length
+          value: "308"
+        - name: connection
+          value: keep-alive
+        - name: rndr-id
+          value: d788a16f-c8f9-44b4
+        - name: server
+          value: cloudflare
+        - name: vary
+          value: Origin, Accept-Encoding
+        - name: x-render-origin-server
+          value: Render
+        - name: cf-cache-status
+          value: DYNAMIC
+        - name: cf-ray
+          value: a0270019dfc52ce1-CGK
+        - name: alt-svc
+          value: h3=":443"; ma=86400
+      body:
+        type: json
+        data: |-
+          {
+            "id": "10000",
+            "ticketNumber": "ADAC2-1",
+            "selfLink": "https://api.atlassian.com/ex/jira/d1d570aa-574b-4fe4-bf04-eb2e9adc5dd2/rest/api/2/issue/10000",
+            "ticketTitle": "[BE][Enhancement] Passkey login features for learner",
+            "stakeholder": "Radit",
+            "status": "In Review",
+            "statusColor": "yellow",
+            "lastViewed": "2026-05-20T11:38:10.480+0700",
+            "creatorName": "Bomanarakasura",
+            "creatorEmail": "bomsiwor@gmail.com",
+            "assigneeName": "Bomanarakasura",
+            "assigneeEmail": "bomsiwor@gmail.com"
+          }
