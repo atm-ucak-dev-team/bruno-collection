@@ -17,10 +17,12 @@ config:
 request:
   variables:
     - name: baseURL
-      value: http://localhost:3001
+      value: https://follup-be.onrender.com
     - name: baseURL
       value: https://challenge2.test-bomsiwor.my.id
       disabled: true
+    - name: cloudId
+      value: d1d570aa-574b-4fe4-bf04-eb2e9adc5dd2
 
 docs:
   content: |-

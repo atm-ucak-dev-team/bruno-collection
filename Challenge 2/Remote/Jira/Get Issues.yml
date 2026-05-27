@@ -5,7 +5,7 @@ info:
 
 http:
   method: get
-  url: https://api.atlassian.com/ex/jira/d1d570aa-574b-4fe4-bf04-eb2e9adc5dd2/rest/api/2/issue/picker?query=
+  url: https://api.atlassian.com/ex/jira/{{cloudId}}/rest/api/2/issue/picker?query=
   headers:
     - name: Authorization
       value: Bearer {{jiraBearerToken}}
